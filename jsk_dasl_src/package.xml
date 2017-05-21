@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package>
+  <name>jsk_dasl_src</name>
+  <version>0.0.1</version>
+  <description>
+   <p>Metapackage that contains SRC packages for JSK-DASL</p>
+  </description>
+
+  <maintainer email="y-tanaka@jsk.t.u-tokyo.ac.jp">Yoshimaru Tanaka</maintainer>
+  <author email="y-tanaka@jsk.t.u-tokyo.ac.jp">Yoshimaru Tanaka</author>
+
+  <license>MIT</license>
+  <url type="repository">https://github.com/yoshimalucky/jsk_dasl_src</url>
+  <url type="bugtracker">https://github.com/yoshimalucky/jsk_dasl_src/issues</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <run_depend>src_dish_mockup</run_depend>
+  <export>
+    <metapackage/>
+  </export>
+</package>
