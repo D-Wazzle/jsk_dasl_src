@@ -16,6 +16,7 @@
   <buildtool_depend>catkin</buildtool_depend>
 
   <run_depend>src_dish_mockup</run_depend>
+  <run_depend>src_hubo</run_depend>
   <export>
     <metapackage/>
   </export>
