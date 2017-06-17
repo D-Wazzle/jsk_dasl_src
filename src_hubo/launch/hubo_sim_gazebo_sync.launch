@@ -1,0 +1,36 @@
+<launch>
+    <!-- these are the arguments you can pass this launch file, for example paused:=true -->
+    <arg name="paused" default="true"/>
+    <arg name="use_sim_time" default="true"/>
+    <arg name="extra_gazebo_args" default=""/>
+    <arg name="gui" default="true"/>
+    <arg name="headless" default="false"/>
+    <arg name="debug" default="false"/>
+    <arg name="schedule_file" default="robonet_schedules/main_gazebo.yaml" />
+    <!-- <arg name="model_file" default="urdf/DRC_HUBO.urdf" /> -->
+    <arg name="controller_manager_looprate" default="500" />
+    <arg name="physics" default="ode"/>
+    <arg name="verbose" default="false"/>
+    <arg name="world_name" default="$(find src_hubo)/worlds/empty.world"/>
+
+    <arg name="topic_creator_wait_time" default="3"/>
+    <arg name="controller_manager_wait_time" default="5"/>
+    <arg name="urdf_spawn_wait_time" default="7"/>
+
+    <!-- model -->
+    <!-- <param name="robot_description" textfile="$(find drc_plugin)/$(arg model_file)"/> -->
+
+    <include file="$(find src_hubo)/launch/hubo_empty_world.launch">
+      <arg name="paused" value="$(arg paused)"/>
+      <arg name="use_sim_time" value="$(arg use_sim_time)"/>
+      <arg name="urdf_spawn_wait_time" value="$(arg urdf_spawn_wait_time)"/>
+      <arg name="extra_gazebo_args" default="$(arg extra_gazebo_args)"/>
+      <arg name="gui" value="$(arg gui)" />
+      <arg name="headless" value="$(arg headless)"/>
+      <arg name="debug" value="$(arg debug)" />
+      <arg name="physics" default="$(arg physics)"/>
+      <arg name="verbose" value="$(arg verbose)"/>
+      <arg name="world_name" value="$(arg world_name)"/>
+    </include>
+
+</launch>
