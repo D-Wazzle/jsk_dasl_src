@@ -1,0 +1,21 @@
+<launch>
+    <!-- <arg name="model_file" default="urdf/DRC_HUBO.urdf" /> -->
+    <arg name="modelName" default="DRC_hubo"/>
+    <arg name="sdfFile" default="/home/y-tanaka/.gazebo/models/DRC_hubo/DRC_hubo.sdf"/>
+    <arg name="xOffset" default="0"/>
+    <arg name="yOffset" default="0"/>
+    <arg name="zOffset" default="0"/>
+
+    <!-- -param robot_description -->
+    <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model"
+          args="-sdf -file $(arg sdfFile) -model $(arg modelName) -x $(arg xOffset) -y $(arg yOffset) -z $(arg zOffset)"
+          respawn="false" output="screen"/>
+
+    <!-- <arg name="model" default="$(find drc_plugin)/$(arg model_file)"/> -->
+    <arg name="model" default="$(find drc_plugin)/urdf/DRC_HUBO.urdf"/>
+    <param name="robot_description" command="$(find xacro)/xacro.py $(arg model)" />
+
+    <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher"/>
+    <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" output="screen"/>
+
+</launch>
